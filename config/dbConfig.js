@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
-const dbName = "bad store";
-
+const dbgr = require("debug")("development:mongoose");
+const config = require("config");
 const connectDB = async()=>{
  
     try {
-      const  connetionInstence = await mongoose.connect(`${process.env.MONGODB_URI}/${dbName}`);
-         console.log(`MONGODB CONNETED SUCCESSFULLY || ${connetionInstence.connection.host}`);
+      const  connetionInstence = await mongoose.connect(`${config.get("MONGODB_URI")}/${config.get("DBNAME")}`);
+         dbgr(`MONGODB CONNETED SUCCESSFULLY || ${connetionInstence.connection.host}`);
          
     } catch (error) {
-        console.log("db connetion erro:",error);
+        dbgr("db connetion erro:",error);
         
     }
 

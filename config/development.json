@@ -1,0 +1,6 @@
+{
+    "MONGODB_URI":"mongodb://localhost:27017",
+    "DBNAME":"bag_house",
+    "PORT":"3000"
+
+}
